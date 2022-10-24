@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
+.nav{
+    display: flex;
+    justify-content: flex-end;
+    margin:0 8px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ip{
+    display: flex;
+    box-shadow: 2px 2px 4px black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.f3{
+    text-shadow: 2px 3px 4px blue;
+    color: rgb(96, 149, 196);
+}
+.grow{
+    margin: 0px 2px;
+}
+.pa{
+    box-shadow: 3px 3px 4px black,-3px -3px 4px black ;
+    height:200px;
+    width: 88vw;
+    background-color: aqua;
+    text-align: center;
+}
+.genc{
+    display: flex;
+    justify-content: center;
+}
+.imageContainer{
+    position: relative;
+    display:flex;
+    justify-content:center;
+    margin: 1.5rem;
+    border: 3px solid green;
+    
+}
+.boundingbox{
+  position: absolute; 
+  box-shadow: 0 0 0 3px red inset;
+  display:flex ;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+#inputimage{
+    border: 3px solid blue;
+    
+}
+.pa4{
+    box-shadow: 2px 2px 2px 7px black;
+    background-color: yellow;
+}
+.signin{
+    cursor: pointer;
+}
+.pa4{
+    margin: 0 6rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* LOGO */
 
-.App-link {
-  color: #61dafb;
+.br3{
+    width: 10%;
+    height: 10%;
+    background-color: aqua;
+    margin-top: -50px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    opacity: 0.5;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.br3:hover{
+    transform:scale(1.2);
 }
