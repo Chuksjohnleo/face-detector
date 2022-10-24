@@ -15,6 +15,7 @@ class SignIn extends React.Component {
     this.setState({signInPassword:event.target.value})
   }
   onSubmitSignIn = () => {
+    document.getElementById('sign').textContent = 'logging in.....';
     //event.preventDefault(); use this for <form>s or remove it for <div>s
     fetch('https://murmuring-escarpment-27687.herokuapp.com/signin',{
       method:'post',
@@ -31,14 +32,19 @@ class SignIn extends React.Component {
         this.props.loadUser(user);
         this.props.routeChange('home');
       }
-      else{console.log('ado oni')}
-    } )
+      else{
+        document.getElementById('sign').textContent = 'wrong details please check your details and try again'
+        console.log('ado oni')}
+    } ).catch(err=>{
+      document.getElementById('sign').textContent = 'connection error: Please make sure that your internet connection is good and try again'
+    })
   }
    render(){
     const {routeChange} = this.props;
     return(
 
         <main className="pa4 black-80">
+          <h1 className="center indicator" id="sign"></h1>
         <div className="measure center">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="f1 fw6  ph0 mh0">Sign In</legend>

@@ -72,3 +72,9 @@
 .br3:hover{
     transform:scale(1.2);
 }
+
+/* signin and register */
+
+.indicator{
+    color: blue;
+}

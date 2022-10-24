@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Navigation = ({ routeChange, isSignedIn}) => {
+ const Navigation = ({ routeChange, isSignedIn}) => {
     if (isSignedIn) {
         return (
         <nav className='flex nav pointer' >
@@ -10,7 +10,7 @@ const Navigation = ({ routeChange, isSignedIn}) => {
     } else {
         return (
             <nav className='flex nav pointer'>
-                {/* <p onClick={admin} >Profile</p> */}
+                 <h3 id='reg'></h3> 
                 <p onClick={() => routeChange('signin')} 
                 className='f4 link dim blue underline pa3 pointer' 
                 ><b>Sign In</b></p>

@@ -117,16 +117,17 @@ class App extends React.Component {
         })
         .catch(err => {
         this.setState({connections:err.message})
-        console.log(err.message)
+        console.log(err)
       })
 
   }
   render() {
   const  {isSignedIn,imageurl,route,box,connections} = this.state;
   return (
+   
     <div>
       {/* <Admin users={this.state.users} routeChange={this.routeChange}/> */}
-      <Navigation admin={this.profile} isSignedIn={isSignedIn} routeChange={this.routeChange} />
+      <Navigation  isSignedIn={isSignedIn} routeChange={this.routeChange} />
       { route === 'home'
         ? <div>
             <Logo />
@@ -143,7 +144,7 @@ class App extends React.Component {
         : (
            route === 'signout' || route === 'signin'
            ? <SignIn loadUser={this.loadUser} routeChange={this.routeChange}/>
-           : <Register loadUser={this.loadUser} routeChange={this.routeChange}/>
+           : <Register username={this.state.user.name} loadUser={this.loadUser} routeChange={this.routeChange}/>
           )
       }
     </div>

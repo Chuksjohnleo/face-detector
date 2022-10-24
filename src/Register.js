@@ -41,6 +41,7 @@ class Register extends React.Component{
 
   //stop
   onSubmitSignIn = () => {
+      document.getElementById('sign').textContent = 'registering you...';
     fetch('https://murmuring-escarpment-27687.herokuapp.com/register',{
       method:'post',
       headers:{'Content-Type':'application/json'},
@@ -57,15 +58,20 @@ class Register extends React.Component{
         console.log('please')
         this.props.loadUser(user)
         this.props.routeChange('home');
-        console.log(user)
+        document.getElementById('reg').textContent = `Welcome ${this.props.username}`
+
+        console.log(user);
       }
-     // console.log('bullshit')
+     else{document.getElementById('sign').textContent = 'not registered'}
+    }).catch(err=>{
+      document.getElementById('sign').textContent = 'connection error: Please make sure that your internet connection is good and try again'
     })
   }
 
    render(){
     return(
         <main className="pa4 ma6 black-80">
+          <h1 className="center indicator" id="sign"></h1>
         <div className="measure center">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="f1 fw6  ph0 mh0">Register</legend>
