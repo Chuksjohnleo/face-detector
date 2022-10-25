@@ -125,7 +125,7 @@ class App extends React.Component {
   const  {isSignedIn,imageurl,route,box,connections} = this.state;
   return (
    
-    <div>
+    <div className='body' >
       {/* <Admin users={this.state.users} routeChange={this.routeChange}/> */}
       <Navigation  isSignedIn={isSignedIn} routeChange={this.routeChange} />
       { route === 'home'

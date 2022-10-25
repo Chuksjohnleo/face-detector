@@ -1,6 +1,6 @@
 import React from "react";
 
-const FaceRecognition=({imageurl,box})=>{
+const FaceRecognition=({imageurl, box})=>{
     return(
     <section className="genc" >
       <div className='imageContainer' >
