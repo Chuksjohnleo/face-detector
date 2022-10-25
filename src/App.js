@@ -127,7 +127,7 @@ class App extends React.Component {
    
     <div className='body' >
       {/* <Admin users={this.state.users} routeChange={this.routeChange}/> */}
-      <Navigation  isSignedIn={isSignedIn} routeChange={this.routeChange} />
+      <Navigation route={route}  isSignedIn={isSignedIn} routeChange={this.routeChange} />
       { route === 'home'
         ? <div>
             <Logo />
