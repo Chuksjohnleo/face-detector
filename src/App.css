@@ -52,8 +52,9 @@
 .signin{
     cursor: pointer;
 }
-.pa4{
-    margin: 0 6rem;
+.rg{
+    margin: 0 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 /* LOGO */

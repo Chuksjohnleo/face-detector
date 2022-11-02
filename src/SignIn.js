@@ -43,11 +43,11 @@ class SignIn extends React.Component {
     const {routeChange} = this.props;
     return(
 
-        <main className="pa4 black-80">
-          <h1 className="center indicator" id="sign"></h1>
-        <div className="measure center">
+        <main className="pa4 center rg black-80">
+          <h5 className="center indicator" id="sign"></h5>
+        <div className="measure form center">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-            <legend className="f1 fw6  ph0 mh0">Sign In</legend>
+            <legend className="f1 fw3  ph0 mh0">Sign In</legend>
             <div className="mt3">
               <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
               <input onChange={this.onEmailChange} className="pa2 input-reset ba bg-transparent hover-bg-light-blue hover-black w-100" type="email" name="email-address"  id="email-address"/>

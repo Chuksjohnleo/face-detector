@@ -11,9 +11,10 @@ import Register from './Register';
 
 const initialState = {
   input: '',
+  //input2:'',
   imageurl: '',
   box: {},
-  route: 'signin',
+  route:'signin',
   isSignedIn: false,
   users:[],
   user:{
@@ -45,6 +46,12 @@ class App extends React.Component {
           }
     )
   }
+  // local = () => {
+  //   var filepath = document.getElementById('filepath');
+  //   const image = document.getElementById('inputimage');
+  //   image.src = URL.createObjectURL(filepath.files[0])
+
+  // }
   profile = ()=> {
     fetch('https://murmuring-escarpment-27687.herokuapp.com//users')
     .then(res=>{return res.json()})
@@ -85,11 +92,22 @@ class App extends React.Component {
    dispBox = (box) => {
      this.setState({ box: box})
    }
-  onInputChange = (event) => {
-    this.setState({ input: event.target.value })
+   onInputChange = (event) => {
+     this.setState({ input: event.target.value});
+    // this.setState({imageurl: this.state.input})
+   }
+  onInputChange2 = (event) => {
+   this.setState({ input: URL.createObjectURL(event.target.files[0])})
+  // this.setState({imageurl: this.state.input2})
   }
   onSubmit = () => {
-    this.setState({ imageurl: this.state.input });
+    //  if(this.state.input){
+       this.setState({imageurl: this.state.input})
+    //  }
+    //  else if(this.state.input2){
+     //  this.setState({ imageurl: this.state.input2 });
+    // }
+    
     fetch('https://murmuring-escarpment-27687.herokuapp.com/apikey',{
       method:'post',
             headers:{'Content-Type':'application/json'},
@@ -135,6 +153,7 @@ class App extends React.Component {
               user={this.state.user}
             />
             <ImageLinkForm
+            onInputChange2={this.onInputChange2}
              connections={connections}
               onInputChange={this.onInputChange}
               onSubmit={this.onSubmit}

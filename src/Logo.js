@@ -1,11 +1,11 @@
 import React from 'react';
-import beer from './beer.png'
+import beauty from './beauty.ico'
 
 
 const Logo = ()=>{
     return(
         <div className='br3 red ma4 nt0' >
-        <img className='img' height={100} width='50' src={beer} alt='n'/>
+     <img className='img' height={100} width='50' src={beauty} alt='n'/> 
         </div>
     )
 }
