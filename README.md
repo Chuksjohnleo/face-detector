@@ -1,3 +1,18 @@
+# How to use face detecting website
+This project  was made with React.js using **create react app**.
+for instructions on how to use create react app, you can scroll down below. 
+The app has features such as Registration,Signin and Face detection. The number of entries made by the user are also tracked. 
+The face detection feature is achieved using **Clarifai API**.
+The signin, registration are handled with a Nodejs back, you can view the repository [https://github.com/Chuksjohnleo/smartbrain-api](here).
+There is an input field for pasting the image link either from the users device or an image url from across the internet.
+
+## Tools:
+ * Javascrpt i.e React.js
+ * Create React App
+ * CSS
+ * HTML
+ * Clarifai API
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
