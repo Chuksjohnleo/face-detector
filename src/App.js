@@ -13,7 +13,7 @@ const initialState = {
   input: '',
   imageurl: '',
   box: {},
-  route:'signin',
+  route:'home' ,//'signin',
   chunk:[],
   isSignedIn: false,
   users:[],
@@ -21,7 +21,7 @@ const initialState = {
   filepath:'link',
   filename:'',
   user:{
-    id:'',
+    id:'d',
     name: '',
     email: '',
     password: '',
@@ -85,7 +85,6 @@ changeFilepath = () =>{
    }
    onInputChange = (event) => {
      this.setState({input:event.target.value, imageurl: event.target.value});
-     
    }
   onInputChange2 = (event) => {
      this.setState({filename:event.target.value})
@@ -112,7 +111,7 @@ changeFilepath = () =>{
           fetch('https://smartbrain-api-zmys.onrender.com/image',{
             method:'put',
             headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({id:this.state.id})
+            body: JSON.stringify({id: this.state.user.id})
           })
           .then(resp=>{
           return  resp.json();
