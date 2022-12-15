@@ -1,12 +1,12 @@
-import Navigation from './Navigation';
-import './App.css';
-import Logo from './Logo';
-import ImageLinkForm from './ImageLinkForm';
-import Rank from './Rank';
 import React from 'react';
-import FaceRecognition from './FaceRecognition'
-import SignIn from './SignIn';
-import Register from './Register';
+import Navigation from './Components/Navigation';
+import './App.css';
+import Logo from './Components/Logo';
+import ImageLinkForm from './Components/ImageLinkForm';
+import Rank from './Components/Rank';
+import FaceRecognition from './Components/FaceRecognition'
+import SignIn from './Components/SignIn';
+import Register from './Components/Register';
 
 
 const initialState = {

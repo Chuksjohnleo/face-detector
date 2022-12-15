@@ -6,6 +6,17 @@
     justify-content: flex-end;
     margin:0 8px;
 }
+.rank{
+    font-weight: 900;
+    color: blue;
+    font-size: larger;
+    text-shadow: 2px 2px 2px lightblue ;
+}
+.rank-number{
+ text-align: center;
+ color: navy;
+ font-size: xx-large;
+}
 .image-link{
     flex-direction: column;
 }
@@ -96,8 +107,8 @@
 }
 
 .pa4{
-    box-shadow: 2px 2px 2px 7px black;
-    background-color: yellow;
+    box-shadow: 2px 2px 17px 3px black;
+    background-color: aqua;
 }
 .signin{
     cursor: pointer;

@@ -40,7 +40,7 @@ class SignIn extends React.Component {
     })
   }
    render(){
-    const {routeChange} = this.props;
+    //const {routeChange} = this.props;
     return(
 
         <main className="pa4 center rg black-80">
@@ -54,14 +54,11 @@ class SignIn extends React.Component {
             </div>
             <div className="mv3">
               <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-              <input onChange={this.onPasswordChange} className="b pa2 input-reset ba bg-transparent hover-bg-light-blue hover-white w-100" type="text" name="password"  id="password"/>
+              <input onChange={this.onPasswordChange} className="b pa2 input-reset ba bg-transparent hover-bg-light-blue hover-white w-100" type="password" name="password"  id="password"/>
             </div>
           </fieldset>
           <div className="flex center">
             <input onClick={this.onSubmitSignIn}  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in"/>
-          </div>
-          <div className="lh-copy signin mt3">
-            <p onClick={()=>routeChange('register')}  className="f6 link dim black db">Sign up</p>
           </div>
         </div>
       </main>    

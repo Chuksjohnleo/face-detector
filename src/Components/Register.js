@@ -19,27 +19,7 @@ class Register extends React.Component{
   onPasswordChange = event => {
     this.setState({password:event.target.value})
   }
-  //start
 
-
-  // sendMessage = (a) => {
-  //  // e.preventDefault();
-  //   //this.timer = 
-  //   setTimeout(() =>{
-  //     // if (a) {
-  //     //   this.props.loadUser(a)
-  //     //   this.props.onRouteChange('home');
-  //     //   console.log('please')
-  //     // }
-  //   } , 10000);
-  // }
-
-  // componentWillUnmount() {
-  //   clearTimeout(this.timer);
-  // }
-
-
-  //stop
   onSubmitSignIn = () => {
       document.getElementById('sign').textContent = 'registering you...';
     fetch('https://murmuring-escarpment-27687.herokuapp.com/register',{
@@ -55,12 +35,9 @@ class Register extends React.Component{
       return response.json()})
     .then(user=>{
       if (user.id) {
-        console.log('please')
         this.props.loadUser(user)
         this.props.routeChange('home');
         document.getElementById('reg').textContent = `Welcome ${this.props.username}`
-
-        console.log(user);
       }
      else{document.getElementById('sign').textContent = 'not registered'}
     }).catch(err=>{
