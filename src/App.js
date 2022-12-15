@@ -60,7 +60,6 @@ changeFilepath = () =>{
     const image = document.getElementById('inputimage');
     const height = Number(image.height);
     const width = Number(image.width);
-    console.log(clarifaiFace,height,width);
 
     return{
       leftCol: clarifaiFace.left_col * width,
@@ -106,8 +105,8 @@ changeFilepath = () =>{
     }).then(res=>{
       return res.json()
     }).then(response => {
-        if(response){ 
-          this.setState({connections:''});
+      this.setState({connections:''});
+        if(response.outputs[0]){ 
           fetch('https://smartbrain-api-zmys.onrender.com/image',{
             method:'put',
             headers:{'Content-Type':'application/json'},
