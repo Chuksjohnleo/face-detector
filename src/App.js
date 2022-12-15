@@ -13,7 +13,7 @@ const initialState = {
   input: '',
   imageurl: '',
   box: {},
-  route:'home' ,//'signin',
+  route:'signin',
   chunk:[],
   isSignedIn: false,
   users:[],
@@ -21,7 +21,7 @@ const initialState = {
   filepath:'link',
   filename:'',
   user:{
-    id:'d',
+    id:'',
     name: '',
     email: '',
     password: '',
