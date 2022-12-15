@@ -100,7 +100,7 @@ changeFilepath = () =>{
  this.setState({connections:'Detecting....'})
  let acceptableUrl = this.state.input.replace(/^data:image\/(.*);base64,/, '');
 
-    fetch('https://murmuring-escarpment-27687.herokuapp.com/detect',{
+    fetch('https://smartbrain-api-zmys.onrender.com/detect',{
       method:'post',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({input:  acceptableUrl})
@@ -109,7 +109,7 @@ changeFilepath = () =>{
     }).then(response => {
         if(response){ 
           this.setState({connections:''});
-          fetch('https://murmuring-escarpment-27687.herokuapp.com/image',{
+          fetch('https://smartbrain-api-zmys.onrender.com/image',{
             method:'put',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify({id:this.state.id})
