@@ -1,12 +1,23 @@
+.body{
+    margin: 15px;
+}
 .nav{
     display: flex;
     justify-content: flex-end;
     margin:0 8px;
 }
-
+.image-link{
+    flex-direction: column;
+}
+.filelink-input,.link-input{
+    width: 100%;
+    box-sizing: border-box;
+}
 .ip{
     display: flex;
     box-shadow: 2px 2px 4px black;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .f3{
@@ -16,35 +27,74 @@
 .grow{
     margin: 0px 2px;
 }
-.pa{
+.input-container{
+    display: flex;
+    flex-direction: column;
     box-shadow: 3px 3px 4px black,-3px -3px 4px black ;
-    height:200px;
-    width: 88vw;
+    height:100%;
+    max-width: 600px;
     background-color: aqua;
     text-align: center;
+    padding: 20px;
 }
+#inputimage{
+    width: 270px;
+}
+
 .genc{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 .imageContainer{
     position: relative;
     display:flex;
+    flex-direction: column;
     justify-content:center;
-    border: 3px solid green;
+    align-content: center;
+    justify-items: center;
+    width: 270px;
+}
+.boundingbox-container{
+    width: 270px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    background-color: blue;
+    justify-items: center;
+    justify-self: center;
+    box-sizing: border-box;
+}
+.flex{
+    justify-content: center;
+}
+.im{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    box-sizing: border-box;
 }
 .boundingbox{
-  position: absolute; 
   box-shadow: 0 0 0 3px red inset;
-  display:flex ;
-  flex-wrap: wrap;
   cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  box-sizing: border-box;
 }
-#inputimage{
-    border: 3px solid blue;
-    
+@media screen and (min-width:550px){
+    #inputimage{
+        width: 500px;
+    }
+    .boundingbox-container{
+        width: 500px;
+    }
+    .imageContainer{
+        width: 500px;
+    }
 }
+
 .pa4{
     box-shadow: 2px 2px 2px 7px black;
     background-color: yellow;
@@ -58,19 +108,21 @@
 }
 
 /* LOGO */
-
+.img{
+    border-radius: 50px;
+}
 .br3{
     width: 10%;
     height: 10%;
-    background-color: aqua;
     margin-top: -50px;
     display: grid;
     justify-items: center;
     align-items: center;
-    opacity: 0.5;
+    opacity: 0.8;
 }
+
 .br3:hover{
-    transform:scale(1.2);
+    transform:scale(1.05);
 }
 
 /* signin and register */

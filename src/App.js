@@ -11,12 +11,15 @@ import Register from './Register';
 
 const initialState = {
   input: '',
-  //input2:'',
   imageurl: '',
   box: {},
-  route:'signin',
+  route:'home',
+  chunk:[],
   isSignedIn: false,
   users:[],
+  btn:'Choose from device',
+  filepath:'link',
+  filename:'',
   user:{
     id:'',
     name: '',
@@ -42,34 +45,22 @@ class App extends React.Component {
         joined: data.joined,
         connections:''
             }
-          
           }
     )
   }
-  // local = () => {
-  //   var filepath = document.getElementById('filepath');
-  //   const image = document.getElementById('inputimage');
-  //   image.src = URL.createObjectURL(filepath.files[0])
-
-  // }
-  profile = ()=> {
-    fetch('https://murmuring-escarpment-27687.herokuapp.com//users')
-    .then(res=>{return res.json()})
-    .then(res=>{
-      console.log(res)
-      this.setState({users:res});
-      console.log(this.state.users)
-    })
-    .catch(err=>{console.log(err)})
+changeFilepath = () =>{
+  if(this.state.filepath === 'link'){
+    this.setState({filepath: 'device',btn:'Use a url link'});
+  }else{
+    this.setState({filepath: 'link',btn:'Choose from device'});
   }
-
+}
   calcFace = (data) => {
-    //console.log(data);
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputimage');
     const height = Number(image.height);
     const width = Number(image.width);
-    console.log(clarifaiFace);
+    console.log(clarifaiFace,height,width);
 
     return{
       leftCol: clarifaiFace.left_col * width,
@@ -93,36 +84,35 @@ class App extends React.Component {
      this.setState({ box: box})
    }
    onInputChange = (event) => {
-     this.setState({ input: event.target.value});
-    // this.setState({imageurl: this.state.input})
+     this.setState({input:event.target.value, imageurl: event.target.value});
+     
    }
   onInputChange2 = (event) => {
-   this.setState({ input: URL.createObjectURL(event.target.files[0])})
-  // this.setState({imageurl: this.state.input2})
-  }
-  onSubmit = () => {
-    //  if(this.state.input){
-       this.setState({imageurl: this.state.input})
-    //  }
-    //  else if(this.state.input2){
-     //  this.setState({ imageurl: this.state.input2 });
-    // }
-    
-    fetch('https://murmuring-escarpment-27687.herokuapp.com/apikey',{
+     this.setState({filename:event.target.value})
+     const reader = new FileReader();
+     reader.readAsDataURL(event.target.files[0]);
+     reader.onload = () =>{
+    this.setState({input: reader.result,imageurl:reader.result});
+   };
+  };
+ onSubmit = (e) => {
+ e.preventDefault();
+ this.setState({connections:'Detecting....'})
+ let acceptableUrl = this.state.input.replace(/^data:image\/(.*);base64,/, '');
+
+    fetch('https://murmuring-escarpment-27687.herokuapp.com/detect',{
       method:'post',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({
-              input : this.state.input
-            })
-    }).then(res=>{return res.json()})
-      .then(response => {
-        if(response){
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({input:  acceptableUrl})
+    }).then(res=>{
+      return res.json()
+    }).then(response => {
+        if(response){ 
+          this.setState({connections:''});
           fetch('https://murmuring-escarpment-27687.herokuapp.com/image',{
             method:'put',
             headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({
-              id: this.state.user.id
-            })
+            body: JSON.stringify({id:this.state.id})
           })
           .then(resp=>{
           return  resp.json();
@@ -133,18 +123,14 @@ class App extends React.Component {
         }
         this.dispBox(this.calcFace(response))
         })
-        .catch(err => {
-        this.setState({connections:err.message})
-        console.log(err)
-      })
-
+        .catch(err => {console.log(err)
+        this.setState({connections:'failed to detect'})
+      });
   }
   render() {
-  const  {isSignedIn,imageurl,route,box,connections} = this.state;
+  const  {isSignedIn,imageurl,route,box,connections,btn,filepath,filename} = this.state;
   return (
-   
     <div className='body' >
-      {/* <Admin users={this.state.users} routeChange={this.routeChange}/> */}
       <Navigation route={route}  isSignedIn={isSignedIn} routeChange={this.routeChange} />
       { route === 'home'
         ? <div>
@@ -153,6 +139,10 @@ class App extends React.Component {
               user={this.state.user}
             />
             <ImageLinkForm
+            btn={btn}
+            filename={filename}
+            changeFilepath={this.changeFilepath}
+            path={filepath}
             onInputChange2={this.onInputChange2}
              connections={connections}
               onInputChange={this.onInputChange}
