@@ -13,7 +13,7 @@ const initialState = {
   input: '',
   imageurl: '',
   box: {},
-  route:'home',
+  route:'signin',
   chunk:[],
   isSignedIn: false,
   users:[],
@@ -119,11 +119,11 @@ changeFilepath = () =>{
           })
           .then(res=>{
             this.setState(Object.assign(this.state.user,{entries:res}))
-          }).catch(err=>{console.log(err)})
+          }).catch(err=>{console.log('error')})
         }
         this.dispBox(this.calcFace(response))
         })
-        .catch(err => {console.log(err)
+        .catch(err => {
         this.setState({connections:'failed to detect'})
       });
   }
