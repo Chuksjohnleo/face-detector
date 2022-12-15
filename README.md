@@ -3,7 +3,7 @@ This project  was made with React.js using **create react app**.
 for instructions on how to use create react app, you can scroll down below. 
 The app has features such as Registration,Signin and Face detection. The number of entries made by the user are also tracked. 
 The face detection feature is achieved using **Clarifai API**.
-The signin, registration are handled with a Nodejs back, you can view the repository [https://github.com/Chuksjohnleo/smartbrain-api](here).
+The signin, registration are handled with a Node.js backend, you can view the repository [here](https://github.com/Chuksjohnleo/smartbrain-api).
 There is an input field for pasting the image link either from the users device or an image url from across the internet.
 
 ## Tools:
