@@ -47,7 +47,7 @@ class SignIn extends React.Component {
           <h5 className="center indicator" id="sign"></h5>
         <div className="measure form center">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-            <legend className="f1 fw3  ph0 mh0">Sign In</legend>
+            <legend className="f1 fw3 submit  ph0 mh0">Sign In</legend>
             <div className="mt3">
               <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
               <input onChange={this.onEmailChange} className="pa2 input-reset ba bg-transparent hover-bg-light-blue hover-black w-100" type="email" name="email-address"  id="email-address"/>

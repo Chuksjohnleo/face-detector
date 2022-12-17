@@ -12,10 +12,10 @@ body {
 button{
   cursor: pointer;
 }
-.rank{
-font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-text-align: center;
-color: white;
-font-weight: 10;
+
+@media screen and (max-width:275px){
+  body{
+      overflow-x: scroll;
+  }
+  
 }

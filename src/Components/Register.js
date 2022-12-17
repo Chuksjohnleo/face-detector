@@ -51,7 +51,7 @@ class Register extends React.Component{
           <h5 className="center indicator" id="sign"></h5>
         <div className="measure ml-3 center">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-            <legend className="f1 fw3  ph0 mh0">Register</legend>
+            <legend className="f1 fw3 submit ph0 mh0">Register</legend>
             <div className="mt3">
               <label className="db  fw6 lh-copy f6" htmlFor="name">Name</label>
               <input onChange={this.onNameChange} className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name"  id="name"/>
@@ -66,7 +66,7 @@ class Register extends React.Component{
             </div>
           </fieldset>
           <div className="flex center">
-            <input onClick={this.onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent center grow pointer f6 dib" type="submit" value="Register"/>
+            <input onClick={this.onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent center grow pointer f dib" type="submit" value="Register"/>
           </div>
         </div>
       </main>

@@ -7,6 +7,7 @@ import Rank from './Components/Rank';
 import FaceRecognition from './Components/FaceRecognition'
 import SignIn from './Components/SignIn';
 import Register from './Components/Register';
+import Profile from './Components/Profile';
 
 
 const initialState = {
@@ -14,7 +15,6 @@ const initialState = {
   imageurl: '',
   box: {},
   route:'signin',
-  chunk:[],
   isSignedIn: false,
   users:[],
   btn:'Choose from device',
@@ -48,11 +48,11 @@ class App extends React.Component {
           }
     )
     sessionStorage.setItem('user',JSON.stringify(data))
-    console.log(sessionStorage.getItem('user'))
   }
-  componentDidMount(){console.log(sessionStorage.getItem('user'))
+  componentDidMount(){
      if(sessionStorage.getItem('user')){
-         this.setState({user:JSON.parse(sessionStorage.getItem('user')),route:'home',isSignedIn:true})
+         this.loadUser(JSON.parse(sessionStorage.getItem('user')))
+         this.setState({route:'home',isSignedIn:true});
      };
   }
 changeFilepath = () =>{
@@ -79,7 +79,7 @@ changeFilepath = () =>{
   routeChange = (route) => {
     if (route === 'signin') {
       this.setState(initialState);
-      sessionStorage.clear('user')
+      sessionStorage.clear();
     } else if (route === 'home') {
       this.setState({ isSignedIn: true })
     }
@@ -124,7 +124,8 @@ changeFilepath = () =>{
           return  resp.json();
           })
           .then(res=>{
-            this.setState(Object.assign(this.state.user,{entries:res}))
+            this.setState(Object.assign(this.state.user,{entries:res}));
+            sessionStorage.setItem('user',JSON.stringify(this.state.user))
           }).catch(err=>{console.log('error')})
         }
         this.dispBox(this.calcFace(response))
@@ -134,13 +135,13 @@ changeFilepath = () =>{
       });
   }
   render() {
-  const  {isSignedIn,imageurl,route,box,connections,btn,filepath,filename} = this.state;
+  const  {isSignedIn,imageurl,route,box,connections,btn,filepath,filename,user} = this.state;
   return (
     <div className='body' >
       <Navigation route={route}  isSignedIn={isSignedIn} routeChange={this.routeChange} />
       { route === 'home'
         ? <div>
-            <Logo />
+            <div className='logo'><Logo /></div>
             <Rank
               user={this.state.user}
             />
@@ -156,6 +157,7 @@ changeFilepath = () =>{
             />
             <FaceRecognition box={box} imageurl={imageurl} />
           </div>
+        : route === 'profile'? <Profile user={user} />
         : (
            route === 'signout' || route === 'signin'
            ? <SignIn loadUser={this.loadUser} routeChange={this.routeChange}/>
