@@ -47,6 +47,13 @@ class App extends React.Component {
             }
           }
     )
+    sessionStorage.setItem('user',JSON.stringify(data))
+    console.log(sessionStorage.getItem('user'))
+  }
+  componentDidMount(){console.log(sessionStorage.getItem('user'))
+     if(sessionStorage.getItem('user')){
+         this.setState({user:JSON.parse(sessionStorage.getItem('user')),route:'home',isSignedIn:true})
+     };
   }
 changeFilepath = () =>{
   if(this.state.filepath === 'link'){
@@ -70,8 +77,9 @@ changeFilepath = () =>{
   }
 
   routeChange = (route) => {
-    if (route === 'signout') {
+    if (route === 'signin') {
       this.setState(initialState);
+      sessionStorage.clear('user')
     } else if (route === 'home') {
       this.setState({ isSignedIn: true })
     }

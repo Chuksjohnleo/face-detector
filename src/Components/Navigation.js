@@ -2,26 +2,27 @@ import React from 'react';
 
 
  const Navigation = ({ routeChange, route, isSignedIn}) => {
-    if (isSignedIn) {
-        return (
-        <nav className='flex nav pointer' >
-            <h3 id='reg'></h3> 
-            <p onClick={() => routeChange('signout')} className='f4 link dim blue underline pa3 pointer' ><b>Sign Out</b></p>
-        </nav>)
+    if (!isSignedIn && route === 'register') {
+    return(<nav className='flex nav' >
+                  <p onClick={() => routeChange('signin')} 
+                     className='f4 link blue pa3' 
+                      ><b className='pointer'>Sign In</b>
+                  </p>
+           </nav>)
     } else if(route === 'signin'){
         return (
-            <nav className='flex nav pointer'>
+            <nav className='flex nav'>
                 <p onClick={() => routeChange('register')} 
-                className='f4 link dim blue underline pa3 pointer' 
-                ><b>Register</b></p>
+                className='f4 link blue pa3' 
+                ><b  className='pointer'>Register</b></p>
             </nav>
         )
     }else{
- return(<nav className='flex nav pointer' >
-            <p onClick={() => routeChange('signin')} 
-                className='f4 link dim blue underline pa3 pointer' 
-                ><b>Sign In</b></p>
-        </nav>)
+        return (
+            <nav className='flex nav' >
+                <h3 id='reg'></h3> 
+                <p onClick={() => routeChange('signin')} className='f4 link blue pa3' ><b  className='pointer'>Sign Out</b></p>
+            </nav>)
     }
 }
 export default Navigation;

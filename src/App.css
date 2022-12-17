@@ -24,17 +24,31 @@
     width: 100%;
     box-sizing: border-box;
 }
+.filelink-input{
+    max-width: 250px;
+}
 .ip{
     display: flex;
     box-shadow: 2px 2px 4px black;
     justify-content: center;
     flex-direction: column;
 }
+.filename{
+    max-width: 220px;
+    overflow-x: scroll;
+}
 
+@media screen and (min-width:490px){
+    .filename{
+        max-width: 220px;
+        overflow-x:hidden;
+    }
+}
 .f3{
     text-shadow: 2px 3px 4px blue;
     color: rgb(96, 149, 196);
 }
+
 .grow{
     margin: 0px 2px;
 }
@@ -110,6 +124,7 @@
     box-shadow: 2px 2px 17px 3px black;
     background-color: aqua;
 }
+
 .signin{
     cursor: pointer;
 }
@@ -117,7 +132,12 @@
     margin: 0 2.5rem;
     margin-bottom: 1.5rem;
 }
-
+@media screen and (max-width:330px){
+    .rg{
+        margin: 0 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
 /* LOGO */
 .img{
     border-radius: 50px;
