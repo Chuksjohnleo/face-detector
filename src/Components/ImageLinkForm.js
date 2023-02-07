@@ -17,7 +17,7 @@ const ImagaLinkForm = ({onInputChange,onSubmit,connections,onInputChange2,btn,pa
             </div>):
             <form className='pa2 file-form' onSubmit={onSubmit}>
                <input id='filepath' className='filelink-input bg-white shadow-5 pa2 ma2 center' onChange={onInputChange2} type='file'/>
-               <div className='filename'>{filename}</div>
+               <div className='filename'>{filename.replace(/.*[\/\\]/,'')}</div>
                <input type='submit' value='submit and detect' className='block grow f4 detect bg-yellow' name='submit'></input>
             </form>
             }

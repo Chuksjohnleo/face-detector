@@ -32,7 +32,8 @@ class Register extends React.Component{
       })
     })
     .then(response=>{
-      return response.json()})
+      return response.json()
+    })
     .then(user=>{
       if (user.id) {
         this.props.loadUser(user)

@@ -137,6 +137,7 @@ changeFilepath = () =>{
   render() {
   const  {isSignedIn,imageurl,route,box,connections,btn,filepath,filename,user} = this.state;
   return (
+  <div>
     <div className='body' >
       <Navigation route={route}  isSignedIn={isSignedIn} routeChange={this.routeChange} />
       { route === 'home'
@@ -164,6 +165,11 @@ changeFilepath = () =>{
            : <Register username={this.state.user.name} loadUser={this.loadUser} routeChange={this.routeChange}/>
           )
       }
+    </div>
+    <footer style={{position: 'sticky',bottom: '0px',transform: 'translateY(50vh)', textAlign: 'center',borderTop: '2px solid grey'}}>
+      <p>Website by <a style={{textDecoration: 'none',color: 'blue'}} href="https://chuksjohnleo.github.io">Chuksjohnleo</a></p>
+      <p>Copyright © 2023 Chuksjohnleo, All rights reserved.</p>
+    </footer>
     </div>
   );
     }
