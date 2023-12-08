@@ -4,7 +4,7 @@ const Profile = ({user}) =>{
  
    return(
     <section className="profile-section">
-        <div className="flex ma3 pa3 tc"><span className="shadow-4 bg-light-blue avater pa3">{user.name[0].toUpperCase()}</span></div>
+        <div className="flex ma3 pa3 tc"><span className="shadow-4 bg-light-blue avater pa3">{user.name.length > 0? user.name[0].toUpperCase():''}</span></div>
         <h1 className="tc blue">Your profile</h1>
     <div className="flex pa3 profile">
         <div className="flex pa4 shadow-4 profile-wrapper">

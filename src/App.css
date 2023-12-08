@@ -62,9 +62,10 @@
     box-shadow: 3px 3px 4px black,-3px -3px 4px black ;
     height:100%;
     max-width: 600px;
-    background-color: aqua;
+    /* background-color: aqua; */
     text-align: center;
     padding: 20px;
+    border-radius: 12px;
 }
 #inputimage{
     width: 270px;
@@ -126,7 +127,8 @@
 
 .pa4{
     box-shadow: 2px 2px 17px 3px black;
-    background-color: aqua;
+    border-radius: 12px;
+    /* background-color: aqua; */
 }
 
 .signin{

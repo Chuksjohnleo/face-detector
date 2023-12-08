@@ -166,7 +166,7 @@ changeFilepath = () =>{
           )
       }
     </div>
-    <footer style={{position: 'sticky',bottom: '0px',transform: 'translateY(50vh)', textAlign: 'center',borderTop: '2px solid grey'}}>
+    <footer style={{position: 'sticky',bottom: '0px',transform: 'translateY(10vh)', textAlign: 'center',borderTop: '2px solid grey'}}>
       <p>Website by <a style={{textDecoration: 'none',color: 'blue'}} href="https://chuksjohnleo.github.io">Chuksjohnleo</a></p>
       <p>Copyright © 2023 Chuksjohnleo, All rights reserved.</p>
     </footer>
